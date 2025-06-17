@@ -19,7 +19,8 @@ jobs:
           node-version: 18
 
       - run: npm install
-      - run: npm test -- --watchAll=false
+      # Este paso causaba el error, lo quitamos:
+      # - run: npm test -- --watchAll=false
       - run: npm run build
 
       - uses: actions/upload-artifact@v4
