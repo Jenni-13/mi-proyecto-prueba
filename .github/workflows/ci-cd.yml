@@ -41,5 +41,5 @@ jobs:
           path: ./build
       - uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./build
