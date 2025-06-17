@@ -15,8 +15,17 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - run: npm test -- --watchAll=false
-      - run: npm run build
+
+      # Diagnóstico
+      - run: ls -l ./node_modules/.bin/react-scripts
+
+      # Forzar permiso (si necesario)
+      - run: chmod +x ./node_modules/.bin/react-scripts
+
+      # Ejecutar test y build usando npx para evitar problemas de path o permisos
+      - run: npx react-scripts test --watchAll=false
+      - run: npx react-scripts build
+
       - uses: actions/upload-artifact@v4
         with:
           name: production-files
